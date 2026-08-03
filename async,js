@@ -1,3 +1,8 @@
+//Single Threaded  //Libuv(c++ library->MultiThreaded)
+//Event Based
+//Non Blocking I/O
+
+
 function register(){
     setTimeout(()=>{
         console.log("register here")

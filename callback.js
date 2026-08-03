@@ -21,7 +21,7 @@ function displayData(){
         console.log("Display data")
     }, 8000);
 }
-//callback Hell
+//Callback Hell Problem
 register(()=>{
     login(()=>{
         getData(()=>{
