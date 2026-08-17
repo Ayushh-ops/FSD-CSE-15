@@ -13,6 +13,18 @@
             border: 2px solid black;
             text-align: center;
         }
+        #message {
+          text-align: center;
+          margin: 15px;
+          font-size: 18px;
+          font-weight: bold;
+        }
+        #orderMessage {
+          text-align: center;
+          margin: 15px;
+          font-size: 18px;
+          font-weight: bold;
+        }
     </style>
     <script>
         const URL="https://dummyjson.com/products?limit=10&skip=3";
@@ -34,6 +46,10 @@
                     <td>${i.rating}</td>
                     <td>₹${(i.price*INRrate).toFixed(2)}</td>
                     <td>${i.stock}</td>
+                    <td><button onClick="addToCart(${i.product})">
+                        Add to Cart
+                        </button>
+                    </td>
                 </tr>
                 `       
              ))
@@ -55,16 +71,34 @@
               console.log("Error:",err);
             }
         }
+        let cart = [];
+
+        function addToCart(id) {
+          cart.push(id);
+          const message = document.getElementById("message");
+          message.innerText = "Product added to cart!";
+        }
+        function placeOrder() {
+           const message = document.getElementById("orderMessage");
+
+          if (cart.length === 0) {
+            message.innerText = "Your cart is empty!";
+          } else {
+            message.innerText = "Order placed successfully!";
+          }
+        }
         const test=async()=>{
         INRrate= await getRate();
         console.log("INRrate=",INRrate);
+        loadProduct();
         }
         test();
-        loadProduct();
+        
     </script>
 </head>
 <body>
     <h1><center>List of Products</center></h1>
+    <div id="message"></div>
    <table>
     <thead>
         <tr>
@@ -75,11 +109,14 @@
             <th>Rating</th>
             <th>Price</th>
             <th>Stock</th>
+            <th>Cart</th>
         </tr>
     </thead>
     <tbody id="data">
 
     </tbody>
    </table>
+   <div id="orderMessage"></div>
+   <button onclick="placeOrder()">Place Order</button>
 </body>
 </html>
