@@ -1,0 +1,28 @@
+.card{
+    width: 400px;
+    height: 400px;
+    background-color: bisque;
+    border: 2px solid red;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card h2{
+    color: red;
+    margin: 5px;
+    padding: 5px;
+}
+.card h3{
+    color: rgb(163, 78, 78);
+    margin: 5px;
+    padding: 5px;
+}
+.btn{
+    background-color: rgb(4, 4, 5);
+    width: 120px;
+    height: 50px;
+    color: white;
+    border-radius: 20px;
+}
