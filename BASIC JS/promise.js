@@ -30,6 +30,7 @@ function displayData(){
         }, 8000);
     });
 }
+//Ladder Problem
 // register().then(login).then(getData).then(displayData).catch((err)=>{
 //     console.log("Error",err)
 // });
@@ -38,7 +39,7 @@ async function test(){
         await register();
         await login();
         await getData();
-        await displayData();
+         displayData();
     }
     catch(err){
         console.log("Error",err)

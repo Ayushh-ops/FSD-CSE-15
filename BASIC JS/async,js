@@ -1,19 +1,21 @@
-function register(cb){
+//Single Threaded  //Libuv(c++ library->MultiThreaded)
+//Event Based
+//Non Blocking I/O
+
+
+function register(){
     setTimeout(()=>{
         console.log("register here")
-        cb();
     }, 5000);
 }
-function login(cb){
+function login(){
     setTimeout(()=>{
         console.log("login here")
-        cb();
     }, 10000);
 }
-function getData(cb){
+function getData(){
     setTimeout(()=>{
         console.log("Fetch data")
-        cb();
     }, 6000);
 }
 function displayData(){
@@ -21,12 +23,9 @@ function displayData(){
         console.log("Display data")
     }, 8000);
 }
-//callback Hell
-register(()=>{
-    login(()=>{
-        getData(()=>{
-            displayData();
-        });
-    });    
-});
+
+register();
+login();
+getData();
+displayData();
 console.log("Call Another Application")
